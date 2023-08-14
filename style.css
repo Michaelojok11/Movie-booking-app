@@ -30,12 +30,24 @@ body{
 .movie-container{
     margin: 20px 0px;
 }
+/* select */
 .movie-container select {
     background-color: white;
     border: 0;
     border-radius: 5px;
     font-size: 14px;
     margin-left: 10px;
-    padding: 5px ;
-
+    padding: 5px 15px 5px 15px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
 }
+/* when the seat is selected */
+
+.seat.selected{
+    background-color: rgb(38, 38, 177);
+}
+.seat.occupied{
+    background-color: white;
+}
+
