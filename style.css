@@ -11,4 +11,31 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
+    font-family: 'lato','sans-serif';
+}
+
+/* seat */
+.seat {
+    background-color: #444451;
+    height: 12px;
+    width: 15px;
+    margin: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.row{
+    display: flex;
+}
+.movie-container{
+    margin: 20px 0px;
+}
+.movie-container select {
+    background-color: white;
+    border: 0;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 5px ;
+
 }
