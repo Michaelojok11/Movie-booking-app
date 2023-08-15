@@ -49,7 +49,7 @@ h2{
 /* when the seat is selected */
 
 .seat.selected{
-    background-color: rgb(38, 38, 177);
+    background-color: rgb(47, 192, 202);
 }
 .seat.occupied{
     background-color: white;
