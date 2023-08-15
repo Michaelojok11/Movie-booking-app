@@ -12,8 +12,23 @@ function updateSelectedCount(){
     
     //    Get the length of the selected seats
     const selectedSeatsCount = selectedSeats.length;
-    console.log(selectedSeatsCount);
+    
+    // update the values
+    count.innerText = selectedSeatsCount;
+    total.innerText = selectedSeatsCount * ticketPrice;
 }
+
+// movie select event
+movieSelect.addEventListener('change', e => {
+    ticketPrice = +e.target.value;
+    updateSelectedCount();
+})
+
+
+
+
+
+
 
 // Add event listeners
 container.addEventListener('click', (e) => {
