@@ -85,7 +85,23 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 10;
+    margin: 0 10px;
 }
+
+.showcase li small {
+    margin-left: 5px;
+}
+.screen{
+    background-color: white;
+    height: 50px;
+    width: 100%;
+    margin: 15px 0;
+    transform: rotate(-45deg);
+    box-shadow: rgb(255, 255, 255, 0.75);
+}
+.container{
+    
+}
+
 
 
