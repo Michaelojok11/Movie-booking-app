@@ -16,6 +16,7 @@ body{
 /* Heading */
 h2{
     color: rgb(224, 218, 218);
+    text-align: center;
 }
 /* seat */
 .seat {
@@ -89,18 +90,29 @@ h2{
 }
 
 .showcase li small {
-    margin-left: 5px;
+    margin-left: 10px;
 }
+/* screen */
 .screen{
     background-color: white;
-    height: 50px;
+    height: 60px;
     width: 100%;
     margin: 15px 0;
-    transform: rotate(-45deg);
-    box-shadow: rgb(255, 255, 255, 0.75);
+    transform: rotateX(-45deg);
+    box-shadow: 0 3px 7px rgb(255, 255, 255, 0.75);
 }
+
+/* container */
 .container{
-    
+    perspective:1000px;
+    margin-bottom: 30px;
+}
+/*  */
+p.text{
+    margin: 5px 0;
+}
+p.text span {
+    color: rgb(70, 158, 151) ;
 }
 
 
