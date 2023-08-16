@@ -3,285 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie seat booking app </title>
-    <!-- css -->
-   <style>
+    <title>Movie Seat Booking App</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic);
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color:#242333;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'lato','sans-serif';
+}
+/* Heading */
+h2{
+    color: rgb(224, 218, 218);
+    text-align: center;
+}
+/* seat */
+.seat {
+    background-color: #444451;
+    height: 12px;
+    width: 15px;
+    margin: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.row{
+    display: flex;
+}
+.movie-container{
+    margin: 20px 0px;
+}
+/* select */
+.movie-container select {
+    background-color: white;
+    border: 0;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 5px 15px 5px 15px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+/* when the seat is selected */
+
+.seat.selected{
+    background-color: rgb(47, 192, 202);
+}
+.seat.occupied{
+    background-color: white;
+}
+.seat:nth-of-type(2){
+    margin-right: 20px;
+}
+
+.seat:nth-last-of-type(3){
+    margin-left: 30px;
+}
+.seat:nth-last-of-type(6){
+    margin-left: 25px;
+}
+.seat:not(.occupied):hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.showcase .seat:not(.occupied):hover{
+    cursor: default;
+    transform: scale(1);
+}
+
+.showcase {
+    background-color: rgb(0, 0, 0,0.1);
+    display: flex;
+    border-radius: 4px;
+    padding: 5px 10px;
+    list-style-type: none;
+    color: #777;
+    justify-content: space-between;
+}
+.showcase li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.showcase li small {
+    margin-left: 10px;
+}
+/* screen */
+.screen{
+    background-color: white;
+    height: 60px;
+    width: 100%;
+    margin: 15px 0;
+    transform: rotateX(-45deg);
+    box-shadow: 0 3px 7px rgb(255, 255, 255, 0.75);
+}
+
+/* container */
+.container{
+    perspective:1000px;
+    margin-bottom: 30px;
+}
+/*  */
+p.text{
+    margin: 5px 0;
+}
+p.text span {
+    color: rgb(70, 158, 151) ;
+}
 
 
-
-   </style>
+    </style>
 </head>
 <body>
-    <!-- movie container -->
-    <div class="movie-container">
-        <!-- selct options -->
-        <h2> CINEMAX ACACIA MALL</h2>
-        <label>Choose a movie </label>
-        <select id="movie">
-            <!-- movie options -->
-            <option value="10"> Avengers: Endgame ($10)</option>
-            <option value="12"> Hidden strike ($12)</option>
-            <option value="11"> Fast X ($11)</option>
-            <option value="8"> Heart of stone ($8)</option>
-            <option value="9"> Little mermaid ($9)</option>
-            <option value="10"> Woman King ($10)</option>
-            <option value="9"> Zoey ($9)</option>
-        </select>
-
-        <!-- seats selected -->
-        <ul class="showcase">
-            <!-- selected -->
-            <li>
-                <div class="seat"></div>
-                <small> N/A </small>
-            </li>
-
-            <!-- selected -->
-            <li>
-                <div class="seat selected"></div>
-                <small> Selected </small>
-            </li>
-            <!-- Occupied  -->
-            <li>
-                <div class="seat occupied"></div>
-                <small> Occupied </small>
-            </li>
-        </ul>
-
-        <!-- screen container -->
         <div class="container">
-            <div class="screen"></div>
-            <!-- row 1 -->
-            <div class="row">
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-
-                <div class="seat"></div>
-                <div class="seat occupied"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
+            <div class="movie-container">
+                <!-- selct options -->
+                <h2> CINEMAX ACACIA MALL</h2>
+                <label>Choose a movie </label>
+                <select id="movie">
+                    <!-- movie options -->
+                    <option value="10"> Avengers: Endgame ($10)</option>
+                    <option value="12"> Hidden strike ($12)</option>
+                    <option value="11"> Fast X ($11)</option>
+                    <option value="8"> Heart of stone ($8)</option>
+                    <option value="9"> Little mermaid ($9)</option>
+                    <option value="10"> Woman King ($10)</option>
+                    <option value="9"> Zoey ($9)</option>
+                </select>
+        
+                <!-- seats selected -->
+                <ul class="showcase">
+                    <!-- selected -->
+                    <li>
+                        <div class="seat"></div>
+                        <small> N/A </small>
+                    </li>
+        
+                    <!-- selected -->
+                    <li>
+                        <div class="seat selected"></div>
+                        <small> Selected </small>
+                    </li>
+                    <!-- Occupied  -->
+                    <li>
+                        <div class="seat occupied"></div>
+                        <small> Occupied </small>
+                    </li>
+                </ul>
+        
+                <!-- screen container -->
+                <div class="container">
+                    <div class="screen"></div>
+                    <!-- row 1 -->
+                    <div class="row">
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+        
+                        <div class="seat"></div>
+                        <div class="seat occupied"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                    </div>
+        
+                     <!-- row 2 -->
+                     <div class="row">
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+        
+                        <div class="seat"></div>
+                        <div class="seat occupied"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+        
+                    </div>
+        
+                     <!-- row 3 -->
+                     <div class="row">
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+        
+                        <div class="seat"></div>
+                        <div class="seat occupied"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                    </div>
+        
+                     <!-- row 4 -->
+                     <div class="row">
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat occupied"></div>
+                        <div class="seat"></div>
+        
+                        <div class="seat occupied"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat occupied"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+        
+                    </div>
+        
+                     <!-- row 5 -->
+                     <div class="row">
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+        
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+        
+                    </div>
+        
+                     <!-- row 6 -->
+                     <div class="row">
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat occupied"></div>
+        
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+        
+                    </div>
+        
+                     <!-- row 7 -->
+                     <div class="row">
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+        
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat occupied"></div>
+                        <div class="seat"></div>
+        
+                    </div>
+        
+                     <!-- row 8 -->
+                     <div class="row">
+                        <div class="seat occupied"></div>
+                        <div class="seat occupied"></div>
+                        <div class="seat "></div>
+                        <div class="seat"></div>
+        
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                        <div class="seat"></div>
+                    </div>
+                    <!-- End of row 8 -->
+                </div>  
             </div>
-
-             <!-- row 2 -->
-             <div class="row">
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-
-                <div class="seat"></div>
-                <div class="seat occupied"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-
-            </div>
-
-             <!-- row 3 -->
-             <div class="row">
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-
-                <div class="seat"></div>
-                <div class="seat occupied"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-            </div>
-
-             <!-- row 4 -->
-             <div class="row">
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat occupied"></div>
-                <div class="seat"></div>
-
-                <div class="seat occupied"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat occupied"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-
-            </div>
-
-             <!-- row 5 -->
-             <div class="row">
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-
-            </div>
-
-             <!-- row 6 -->
-             <div class="row">
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat occupied"></div>
-
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-
-            </div>
-
-             <!-- row 7 -->
-             <div class="row">
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat occupied"></div>
-                <div class="seat"></div>
-
-            </div>
-
-             <!-- row 8 -->
-             <div class="row">
-                <div class="seat occupied"></div>
-                <div class="seat occupied"></div>
-                <div class="seat "></div>
-                <div class="seat"></div>
-
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-                <div class="seat"></div>
-            </div>
-            <!-- End of row 8 -->
-        </div>  
-    </div>
-    <!-- End of container -->
-
-
-    <!-- text -->
+        </div>
+ 
 
     <p class="text">
-        You have selected <span id="count"> 0     
-        </span> seats for a price of $<span id="total">0</span>
+        You have selected <span id="count">0</span> seats for a price of $<span id="total">0</span>
     </p>
 
-
-
-    
-    <!-- js -->
     <script>
+       document.addEventListener("DOMContentLoaded", () => {
+            const container = document.querySelector(".container");
+            const seats = document.querySelectorAll(".row .seat:not(.occupied)");
+            const count = document.getElementById("count");
+            const total = document.getElementById("total");
+            const movieSelect = document.getElementById("movie");
 
-const container = document.querySelector('.container');
-const seats = document.querySelectorAll('.row .seat:not(.occupied)');
-const count = document.getElementsByName('count');
-const total = document.getElementById('total');
-const movieSelect = document.getElementById('movie');
+            // Get data from local storage and populate the UI
+            function populateUI() {
+                const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
+                if (selectedSeats !== null && selectedSeats.length > 0) {
+                    seats.forEach((seat, index) => {
+                        if (selectedSeats.indexOf(index) > -1) {
+                            seat.classList.add("selected");
+                        }
+                    });
+                }
+                const selectedMovieIndex = localStorage.getItem("selectedMovieIndex");
 
-// get data from local storage and populate the ui
-function populationUI(){
-    const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'))
-    if (selectedSeats !== null && selectedSeats.length > 0){
-        seats.forEach((seat, index) =>{
-            if(selectedSeats.indexOf(index) > -1)
-            seat.classList.add('selected');
+                if (selectedMovieIndex !== null) {
+                    movieSelect.selectedIndex = selectedMovieIndex;
+                }
+            }
+
+            let ticketPrice = +movieSelect.value;
+
+            // Save selected movie and price
+            function setMovieData(movieIndex, moviePrice) {
+                localStorage.setItem("selectedMovieIndex", movieIndex);
+                localStorage.setItem("selectedMoviePrice", moviePrice);
+            }
+
+            // Update total and count
+            function updateSelectedCount() {
+                const selectedSeats = document.querySelectorAll(".row .seat.selected");
+                const selectedSeatsCount = selectedSeats.length;
+
+                count.innerText = selectedSeatsCount;
+                total.innerText = selectedSeatsCount * ticketPrice;
+
+                // Update local storage
+                const seatsIndex = [...selectedSeats].map((seat) => {
+                    return [...seats].indexOf(seat);
+                });
+
+                localStorage.setItem("selectedSeats", JSON.stringify(seatsIndex));
+            }
+
+            // Movie select event
+            movieSelect.addEventListener("change", (e) => {
+                ticketPrice = +e.target.value;
+                setMovieData(e.target.selectedIndex, e.target.value);
+
+                updateSelectedCount();
+            });
+
+            // Add event listeners
+            container.addEventListener("click", (e) => {
+                if (e.target.classList.contains("seat") && !e.target.classList.contains("occupied")) {
+                    e.target.classList.toggle("selected");
+                    updateSelectedCount();
+                }
+            });
+
+            // Initial population
+            populateUI();
+            updateSelectedCount();
         });
-    }
-    const selectedMovieIndex = localStorage.getItem('selectedMovieIndex');
-
-    if (selectedMovieIndex != null){
-        movieSelect.selectedIndex = selectedMovieIndex;
-    }
-}
-
-let ticketPrice = +movieSelect.value; 
-
-// save selected movie  and price
-function setMovieData(movieIndex, moviePrice){
-    localStorage.setItem('selectedMovieIndex', movieIndex);
-    localStorage.setItem('selectedMoviePrice', moviePrice);
-}
-
-
-
-
-
-
-// update total and count
-function updateSelectedCount(){
-    const selectedSeats = document.querySelectorAll('.row .seat.selected')
-    
-    // update local storage
-    const seatsIndex = [...selectedSeats].map(function(seat){
-        return [...seats].indexOf(seat);
-    });
-
-    localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
-
-
-    //    Get the length of the selected seats
-    const selectedSeatsCount = selectedSeats.length;
-    
-    // update the values
-    count.innerText = selectedSeatsCount;
-    total.innerText = selectedSeatsCount * ticketPrice;
-}
-
-// movie select event
-    movieSelect.addEventListener('change', e => {
-    ticketPrice = +e.target.value;
-    setMovieData(e.target.selectedIndex, e.target.value);
-    
-    updateSelectedCount();
-});
-
-
-
-// Add event listeners
-container.addEventListener('click', (e) => {
-    // check if we are adding the target
-    if(e.target.classList.contains('seat') && !e.target.classList.contains('occupied')){
-        // Add a class so that it turns to blue
-        e.target.classList.toggle('selected');
-    }
-
-    // update function to update the selected counts and price
-    updateSelectedCount();
-});
-
-updateSelectedCount();
-
-
     </script>
 </body>
 </html>
