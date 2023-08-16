@@ -15,8 +15,11 @@ body{
 }
 /* Heading */
 h2{
-    color: rgb(224, 218, 218);
+    color: rgb(245, 243, 243);
     text-align: center;
+}
+label{
+    color: rgb(213, 222, 224);
 }
 /* seat */
 .seat {
@@ -95,11 +98,14 @@ h2{
 /* screen */
 .screen{
     background-color: white;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     height: 60px;
     width: 100%;
     margin: 15px 0;
-    transform: rotateX(-45deg);
-    box-shadow: 0 3px 7px rgb(255, 255, 255, 0.75);
+     transform: rotateX(-15deg); 
+    box-shadow: 0 2px 5px rgb(200, 200, 200, 0.75);
 }
 
 /* container */
